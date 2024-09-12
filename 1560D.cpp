@@ -38,7 +38,7 @@ void solve() {
 
     int k, j, tmp, best = 10;
     for (int i = 0; i < 60; i++) {
-        tmp = 0;
+        tmp = 0; 
         for (k = 0, j = 0; j < m && k < P2[i].size(); k++) {
             while (j < m && x[j] != P2[i][k])
                 j++;
