@@ -20,8 +20,14 @@ const ll INF = 0x3f3f3f3f3f3f3f3f;
 #define fro(l, r) for (ll i = (l); i <= ll((r)); i++)
 
 
-void solve() {
-    
+void solve(vector<int> &A) {
+    ll n, k;
+    cin >> n >> k;
+
+    for (int i = 0; i < n; i++) {
+        cout << k * (A[n-1] == A[i] + A[n-1-i]) << ' ';
+    }
+    cout << '\n';
 }
 
 
@@ -32,8 +38,18 @@ int main() {
     t = 1;
     cin >> t;
 
+    vector<int> A(1000000+69);
+    A[0] = A[1] = 0;
+    for (int i = 2; i < 1000000+69; i++) {
+        A[i] = A[i-1];
+        int x = i;
+        while (x % 2 == 0) {
+            x /= 2; A[i]++;
+        }
+    }
+
     while (t--) {
-        solve();
+        solve(A);
     }
 
     return 0;
