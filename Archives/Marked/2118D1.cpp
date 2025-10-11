@@ -1,0 +1,66 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+typedef long long ll;
+typedef array<int, 3> triple;
+const ll INF = 0x3f3f3f3f3f3f3f3f;
+
+#define MAXLEN 100001
+#define min(a, b) ((a) < (b) ? (a) : (b))
+#define max(a, b) ((a) > (b) ? (a) : (b))
+#define mod(a, b) ((long long) ((a) - (b)*floor((long double) (a)/(b))))
+#define FIXIO  ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+
+#define vi vector<int>
+#define vll vector<ll>
+#define vpi vector<pair<int,int>>
+#define all(v) v.begin(), v.end()
+#define rall(v) v.rbegin(), v.rend()
+#define pre(r, l) for (ll i = (r); i >= ll((l)); i--)
+#define fro(l, r) for (ll i = (l); i <= ll((r)); i++)
+
+
+void solve() {
+    ll n, k;
+    cin >> n >> k;
+    vector<ll> P(n), D(n);
+    for (auto &i: P) cin >> i;
+    for (auto &i: D) cin >> i;
+
+    ll q;
+    cin >> q;
+    while (q--) {
+        ll s;
+        cin >> s;
+
+        ll c = s, d = 0, t = 0;
+        while (1) {
+            ll next = lower_bound(P.begin(), P.end(), c) - P.begin();
+            
+        }
+    }
+
+
+    yes:
+        cout << "YES" << '\n';
+        return;
+
+    no:
+        cout << "NO" << '\n';
+        return;
+}
+
+
+int main() {
+    FIXIO;
+
+    ll t;
+    t = 1;
+    cin >> t;
+
+    while (t--) {
+        solve();
+    }
+
+    return 0;
+}

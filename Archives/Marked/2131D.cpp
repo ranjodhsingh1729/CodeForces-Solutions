@@ -1,0 +1,66 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+typedef long long ll;
+typedef array<int, 3> triple;
+const ll INF = 0x3f3f3f3f3f3f3f3f;
+
+#define MAXLEN 100001
+#define min(a, b) ((a) < (b) ? (a) : (b))
+#define max(a, b) ((a) > (b) ? (a) : (b))
+#define mod(a, b) ((long long) ((a) - (b)*floor((long double) (a)/(b))))
+#define FIXIO  ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+
+#define vi vector<int>
+#define vll vector<ll>
+#define vpi vector<pair<int,int>>
+#define all(v) v.begin(), v.end()
+#define rall(v) v.rbegin(), v.rend()
+#define pre(r, l) for (ll i = (r); i >= ll((l)); i--)
+#define fro(l, r) for (ll i = (l); i <= ll((r)); i++)
+
+
+void solve() {
+    int n;
+    cin >> n;
+
+    vector<int> C1(n+1);
+    vector<pair<int,int>> edges(n-1);
+    for (int i = 0; i < n-1; i++) {
+        cin >> edges[i].first >> edges[i].second;
+        C1[edges[i].first]++;
+        C1[edges[i].second]++;
+    }
+    int leaf_count = 0;
+    for (int i = 1; i <= n; i++) {
+        leaf_count += C1[i] == 1;
+    }
+
+    vector<int> C2(n+1);
+    for (int i = 0; i < n-1; i++) {
+        C2[edges[i].first] += C1[edges[i].second] == 1;
+        C2[edges[i].second] += C1[edges[i].first] == 1;
+    }
+    int max_sibling_leaves = *max_element(C2.begin(), C2.end());
+
+    if (n <= 3) {
+        cout << 0 << '\n';
+        return;
+    }
+    cout << leaf_count - max_sibling_leaves << '\n';
+}
+
+
+int main() {
+    FIXIO;
+
+    ll t;
+    t = 1;
+    cin >> t;
+
+    while (t--) {
+        solve();
+    }
+
+    return 0;
+}
